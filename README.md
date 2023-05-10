@@ -48,10 +48,45 @@ It shows the distance of a random variable from its mean. It is calcualted as
 ![image](https://user-images.githubusercontent.com/103921593/229993174-5b67e57e-3e01-4ac4-9f83-410a932b22bf.png)
 
 # Program :
+```python
+Developed By : Rakesh.V
+Register  No : 21222110036
 
+import numpy as np
+L=[int(i) for i in input().split()]
 
+#Construction of frequency table
+x=list();f=list()
+N=len(L);M=max(L)
+for i in range (M+1):
+    c=0
+    for j in range(N):
+        if L[j]==i:
+            c=c+1
+    f.append(c) #adding elements to list f
+    x.append(i) #adding elements to list x
 
+sf=np.sum(f) #sum of frequency - sf
+# calculating probability distribution
+p=list()
+for i in range(M+1):
+    p.append(f[i]/sf) # calculating probability distribution
+#calculate mean
+mean=np.inner(x,p) # multiplying corresponding element - inner function
+EX2=np.inner(np.square(x),p) #to find variance = ex^2 - (ex)^2
+# variance
+var=EX2-mean**2 
+# standard deviation
+SD=np.sqrt(var)
+
+print("The Mean arrival rate is %.3f"%mean)
+
+print("The Variance of arrival from feeder is %.3f"%var)
+
+print("The Standard deviation of arrival from feeder is %.3f"%SD)
+```
 # Output : 
+
 
 # Results :
 The mean and variance of arrivals of objects from feeder using probability distribution are calculated.
